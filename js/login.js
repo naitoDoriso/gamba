@@ -1,5 +1,5 @@
 if (!localStorage.getItem("data")){
-	location.replace("../");
+	location.replace("../gamba");
 }
 
 let data = JSON.parse(localStorage.getItem("data"));
