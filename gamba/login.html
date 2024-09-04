@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<title>Gamba | </title>
+		<link rel="stylesheet" href="style/bootstrap.min.css">
+		<style>
+			#gamba {
+				height: 128px;
+				overflow: hidden;
+			}
+		
+			.gimg {
+				object-fit: cover;
+				height: auto;
+				max-height: 128px;
+				min-width: 182px;
+				object-position: 0% 55.4%;
+				background-color: #6f1246;
+			}
+
+			#dark {
+	            width: 36px;
+	            height: 36px;
+	        }
+
+	        #dark:hover img {
+	            filter: invert(1);
+	        }
+
+	        #dark img {
+	            position: absolute;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            transition: filter .3s linear;
+	        }
+		</style>
+	</head>
+	<body class="p-2 bg-dark text-white">
+		<div id="header" class="d-flex flex-row justify-content-end align-items-center rounded p-2 bg-black">
+			<label for="icon" id="nome" class="btn btn-outline-danger"></label>
+			<img id="icon" src="" class="img-thumbnail rounded-circle ms-3" width="128px">
+		</div>
+
+		<div id="gamba" class="position-absolute top-50 start-50 translate-middle d-flex flex-row justify-content-around flex-nowrap w-50">
+			<img id="gamba_1" class="gimg" src="img/gamba.png" role="5">
+			<img id="gamba_2" class="gimg" src="img/gamba.png" role="5">
+			<img id="gamba_3" class="gimg" src="img/gamba.png" role="5">
+			<input type="button" id="gambabtn" value="GAMBA" class="btn btn-outline-danger">
+		</div>
+
+		<div id="info"></div>
+		<button type="button" id="dark" class="rounded-circle btn btn-outline-dark position-absolute bottom-0 end-0 translate-middle">
+        	<img src="img/dark.png">
+    	</button>
+	    <script src="js/dark.js"></script>
+		<script src="js/login.js"></script>
+		<script src="js/gamba.js"></script>
+	</body>
+</html>
