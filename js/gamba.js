@@ -231,6 +231,6 @@ gambabtn.onclick = () => {
 	})
 	.catch(err => {
 		console.error("Você não está logado!");
-		location.replace("../");
+		location.replace("../gamba");
 	});
 };
