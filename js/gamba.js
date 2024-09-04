@@ -229,5 +229,8 @@ gambabtn.onclick = () => {
 		})
 		.catch(err => console.error(err))
 	})
-	.catch(err => console.error("Você não está logado!"));
+	.catch(err => {
+		console.error("Você não está logado!");
+		location.replace("../");
+	});
 };

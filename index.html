@@ -5,6 +5,10 @@
 	<title>Gamba | Login</title>
 	<link rel="stylesheet" href="style/bootstrap.min.css">
 	<style>
+		body {
+			transition: background-color .4s linear, color .4s linear;
+		}
+	
 		#icon {
 			display: block;
 			content: "";
@@ -22,6 +26,7 @@
 			padding-right: 32px;
 			border-color: #9146ff;
 			color: #9146ff;
+			box-shadow: 0px 5px #9146ff;
 		}
 
 		#login:hover {
@@ -46,11 +51,21 @@
 			width: 100%;
 			transition: filter .3s linear;
 		}
+
+		#title {
+			filter: drop-shadow(0px 0px 8px black);
+			transition: filter .2s linear;
+		}
+
+		#title:hover {
+			filter: drop-shadow(0px 0px 8px #767676);
+		}
 	</style>
 </head>
 <body class="p-4 bg-dark text-white">
-	<div class="position-absolute top-50 start-50 translate-middle">
-		<a href="https://id.twitch.tv/oauth2/authorize?response_type=token&redirect_uri=https://naitodoriso.github.io/gamba/&client_id=a37mbwznyogk5b4hy45c5eob62xhwg&force_verify=true">
+	<div class="position-absolute top-50 start-50 translate-middle d-flex flex-column align-items-center">
+		<img id="title" src="img/title.png" class="mb-5">
+		<a href="https://id.twitch.tv/oauth2/authorize?response_type=token&redirect_uri=https://naitodoriso.github.io/gamba/&client_id=a37mbwznyogk5b4hy45c5eob62xhwg&force_verify=true" class="position-relative">
 			<input id="login" type="button" value="Login" class="btn btn-outline-secondary">
 			<img id="icon" src="https://cdn-icons-png.flaticon.com/512/5968/5968819.png">
 		</a>

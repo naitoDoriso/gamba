@@ -3,7 +3,7 @@ function make_index(data, id, token){
 	let imagesrc = data.profile_image_url;
 
 	localStorage.setItem("data", `{"username": "${username}", "image": "${imagesrc}", "id": "${id}", "token": "${token}"}`);
-	location.replace("/login.html");
+	location.replace("./login.html");
 }
 
 if (location.hash != ''){
@@ -33,7 +33,7 @@ if (location.hash != ''){
 	})
 	.catch(err => console.error("Você não está logado!"));
 } else if (localStorage.getItem("data") && JSON.parse(localStorage.getItem("data")).id.length == 30) {
-	location.replace("/login.html");
+	location.replace("./login.html");
 } else if (localStorage.getItem("data") && JSON.parse(localStorage.getItem("data")).id.length < 30){
 	window.alert("Amabatukan 😳💦");
 }
