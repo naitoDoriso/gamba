@@ -44,7 +44,7 @@ function make_timer(str, win=false){
 	}, 1000);
 }
 
-let perc = [-1, 100, 88.8, 77.7, 66.7, 55.4, 44.4, 33.4, 22.3, 11.2, 0];
+let perc = [-1, 100, 88.8, 77.7, 66.6, 55.5, 44.4, 33.3, 22.2, 11.1, 0];
 
 function intervalo(i, k, rand, wheels, t, voltas, print=false) {
 	voltas += 2*i;
