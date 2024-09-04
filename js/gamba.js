@@ -47,18 +47,21 @@ function make_timer(str, win=false){
 let perc = [-1, 100, 88.8, 77.7, 66.6, 55.5, 44.4, 33.3, 22.2, 11.1, 0];
 
 function intervalo(i, k, rand, wheels, t, voltas, print=false) {
-	voltas += 2*i;
+    let rep = voltas*2-1 + 2*(3*i);
 
-    let meiavolta = t/(voltas*2*1000);
+    let maxrep = voltas*2-1 + 12;
+    let meiavolta = t/(maxrep*1000);
+	let tanim = t/400;
     let tcomp = 1000*meiavolta;
-    let tanim = 30*(meiavolta);
     let act = 5;
 
     wheels[i].style.transition = `object-position ${meiavolta}s linear`;
-    wheels[i].style.objectPosition = `0% ${perc[10]}%`; // act -> 10
+    wheels[i].style.objectPosition = `0% ${perc[10]}%`;
+
+    if (rand[i] < 10) voltas--;
 
 	let int = setInterval(() => {
-        if (k >= voltas*2) {
+        if (k >= rep) {
             wheels[i].setAttribute("role", rand[i]);
 
             if (act > rand[i]){
@@ -111,8 +114,8 @@ function intervalo(i, k, rand, wheels, t, voltas, print=false) {
 
 function roleta(rand){
 	let wheels = [...document.querySelectorAll(".gimg")];
-	let duracao = 5000;
-	let voltas = 3;
+	let duracao = 10000;
+	let voltas = (duracao)/1000;
 
 	// primeira
 	intervalo(0, 0, rand, wheels, duracao, voltas);
@@ -230,7 +233,29 @@ gambabtn.onclick = () => {
 		.catch(err => console.error(err))
 	})
 	.catch(err => {
-		console.error("Você não está logado!");
+		localStorage.removeItem("data");
 		location.replace("../gamba");
 	});
 };
+
+if (localStorage.getItem("secret")) {
+	[...document.querySelectorAll(".gimg")].map(x => {
+            x.src = localStorage.getItem("secret");
+	});
+}
+
+document.onkeydown = (e) => {
+	if (e.keyCode == 191){
+		if (!localStorage.getItem("secret")) window.alert("Secret ativado!");
+
+		[...document.querySelectorAll(".gimg")].map(x => {
+			if (x.src.split("img/")[1] == "gamba.png") {
+				x.src = "img/gamba-orig.png";
+				localStorage.setItem("secret", "img/gamba-orig.png");
+			} else {
+				x.src = "img/gamba.png";
+				localStorage.setItem("secret", "img/gamba.png");
+			}
+		});
+	}
+}
